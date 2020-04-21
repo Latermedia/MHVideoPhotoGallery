@@ -1416,12 +1416,11 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     self.moviePlayer.view.backgroundColor = [self.viewController.UICustomization MHGalleryBackgroundColorForViewMode:[self currentViewMode]];
     self.moviePlayer.showsPlaybackControls = NO;
     
-    self.avplayer = [AVPlayer playerWithURL:URL];
-    self.moviePlayer.player = self.avplayer;
+    self.moviePlayer.player = [AVPlayer playerWithURL:URL];
     self.moviePlayer.videoGravity = AVLayerVideoGravityResizeAspect;
     
     
-    [self.avplayer addObserver:self forKeyPath:@"status" options:0 context:PlayerStatusContext];
+    [self.moviePlayer.player addObserver:self forKeyPath:@"status" options:0 context:PlayerStatusContext];
 
     [NSNotificationCenter.defaultCenter addObserver:self
                                            selector:@selector(moviePlayBackDidFinish:)

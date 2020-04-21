@@ -61,7 +61,6 @@
 @property (nonatomic,strong)        UIActivityIndicatorView *act;
 @property (nonatomic,strong)        UIImageView *imageView;
 @property (nonatomic,strong)        AVPlayerViewController *moviePlayer;
-@property (nonatomic, strong)       AVPlayer *avplayer;
 
 @property (nonatomic)               NSInteger pageIndex;
 @property (nonatomic)               NSInteger currentTimeMovie;
