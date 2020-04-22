@@ -1399,10 +1399,6 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     
 }
 
--(void)newLogError:(NSNotification *)notification{
-    NSLog(@"Error!!!!");
-    
-}
 -(void)stopTimer{
     [self.movieTimer invalidate];
     self.movieTimer = nil;
@@ -1501,10 +1497,8 @@ static void *PlayerStatusContext = &PlayerStatusContext;
                        context:(void *)context {
  
     if (context == PlayerStatusContext) {
-           // Do something with the balance…
            [self playerStatusDidChange];
-       }
-    
+    }
     else {
         // Any unrecognized context must belong to super
         [super observeValueForKeyPath:keyPath
