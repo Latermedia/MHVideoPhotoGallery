@@ -60,7 +60,7 @@
     MHGalleryItem *tailored2 = [MHGalleryItem.alloc initWithURL:@"http://www.tailored-apps.com/wp-content/uploads/2014/01/hannes.jpg"
                                                    galleryType:MHGalleryTypeImage];
     
-    MHGalleryItem *tailored3 = [MHGalleryItem.alloc initWithURL:@"http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+    MHGalleryItem *tailored3 = [MHGalleryItem.alloc initWithURL:@"http://techslides.com/demos/sample-videos/small.mp4"
                                                     galleryType:MHGalleryTypeVideo];
     
     NSShadow *shadow = [[NSShadow alloc] init];
@@ -206,12 +206,13 @@
                     
                     [self setNeedsStatusBarAppearanceUpdate];
                     
-                    MPMoviePlayerController *player = interactiveTransition.moviePlayer;
+                    AVPlayerViewController *controller = interactiveTransition.moviePlayer;
                     
-                    player.controlStyle = MPMovieControlStyleEmbedded;
-                    player.view.frame = cell.bounds;
-                    player.scalingMode = MPMovieScalingModeAspectFill;
-                    [cell.contentView addSubview:player.view];
+                    if (controller) {
+                        controller.view.frame = cell.bounds;
+                        [self addChildViewController:controller];
+                        [cell.contentView addSubview:controller.view];
+                    }
                 }];
             });
         }
