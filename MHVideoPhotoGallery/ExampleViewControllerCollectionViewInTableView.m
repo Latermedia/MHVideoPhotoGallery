@@ -208,8 +208,11 @@
                     
                     AVPlayerViewController *controller = interactiveTransition.moviePlayer;
                     
-                    controller.view.frame = cell.bounds;
-                    [cell.contentView addSubview:controller.view];
+                    if (controller) {
+                        controller.view.frame = cell.bounds;
+                        [self addChildViewController:controller];
+                        [cell.contentView addSubview:controller.view];
+                    }
                 }];
             });
         }
