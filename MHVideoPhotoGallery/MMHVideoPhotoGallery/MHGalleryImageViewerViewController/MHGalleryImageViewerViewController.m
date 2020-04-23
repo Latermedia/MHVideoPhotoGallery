@@ -81,7 +81,7 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     
     MHImageViewController *imageViewer = self.pageViewController.viewControllers.firstObject;
     if (imageViewer.moviePlayer) {
-        [imageViewer removeAllMoviePlayerViewsAndNotifications];
+        [imageViewer.moviePlayer.player pause];
     }
     
     if (self.navigationController.delegate == self) {
