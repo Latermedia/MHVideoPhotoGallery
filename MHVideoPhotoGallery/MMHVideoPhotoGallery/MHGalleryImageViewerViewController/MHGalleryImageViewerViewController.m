@@ -108,6 +108,10 @@
     if ([self numberOfGalleryItems] > self.pageIndex) {
         MHGalleryItem *item = [self itemForIndex:self.pageIndex];
         
+        if (item == NULL) {
+            return;
+        }
+        
         MHImageViewController *imageViewController = [MHImageViewController imageViewControllerForMHMediaItem:item viewController:self];
         imageViewController.pageIndex = self.pageIndex;
         [self.pageViewController setViewControllers:@[imageViewController]
